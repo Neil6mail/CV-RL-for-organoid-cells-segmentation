@@ -17,13 +17,13 @@ from io import BytesIO
 
 
 
-# Temp folder
+ # Temporary folder
 TEMP_DIR = tempfile.mkdtemp(prefix="vision_tmp_")
 
-# Évaluation humaines stockée ici
+# Human evaluations stored here
 human_scores = {}
 
-# Interface interactive
+# Interactive interface
 class AlgoViewer_human:
     def __init__(self, image_list, name_list):
         for i in range(len(name_list)):

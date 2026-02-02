@@ -1,42 +1,42 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-image_path = "images/data1_image_300.png"  # Chemin vers l'image
-# Charger l'image en niveaux de gris
+image_path = "images/data1_image_300.png"  # Path to the image
+# Load the image in grayscale
 img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
 
-# Appliquer un flou pour homogénéiser
+ # Apply a blur to homogenize
 blurred = cv2.GaussianBlur(img, (1, 1), 0)
 
-# Seuillage inversé : le croissant devient blanc, fond noir
+# Inverse thresholding: the crescent becomes white, background black
 _, mask = cv2.threshold(blurred, 60, 255, cv2.THRESH_BINARY)
 
-# Fermer les petits trous
+ # Close small holes
 kernel = np.ones((5, 5), np.uint8)
 mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
 masque = cv2.medianBlur(mask, 5)
 cleaned=cv2.bitwise_and(img, img, mask=masque)
 # Afficher le masque
 
-# Optionnel : retirer les petits objets
+# Optional: remove small objects
 num_labels, labels, stats, centroids = cv2.connectedComponentsWithStats(mask)
 sizes = stats[1:, -1]  # Ignore background
 min_size = 5000
 
-# Créer nouveau masque
+ # Create new mask
 filtered_mask = np.zeros(mask.shape, dtype=np.uint8)
 for i in range(1, num_labels):
     if sizes[i - 1] > min_size:
         filtered_mask[labels == i] = 255
 
 
-# Créer une image RGB pour coloriser
+ # Create an RGB image for coloring
 img_rgb = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 
-# Créer un fond bleu
+ # Create a blue background
 blue_bg = np.full_like(img_rgb, (255, 128, 0))  # BGR pour un bleu profond
 
-# Appliquer le masque
+ # Apply the mask
 croissant = cv2.bitwise_and(img_rgb, img_rgb, mask=filtered_mask)
 background = cv2.bitwise_and(blue_bg, blue_bg, mask=cv2.bitwise_not(filtered_mask))
 

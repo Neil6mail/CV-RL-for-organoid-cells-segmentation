@@ -5,12 +5,12 @@ from computer_vision_algo import *
 image_path = "images/data1_image_300.png" 
 mask_path = "images/data1_mask_300.png"  
 
+
 # image_path2 = "images/unsharp_image.png" 
 # image_path3 = "images/combined_image.png" 
 
 # image_path = "images/cni.png" 
 # mask_path = "images/cni.png"  
-
 
 # image_path = "image_bw.png"
 
@@ -28,8 +28,7 @@ finetuned_version = True #True if you want to use the finetuned version of the m
 
 ALGO_REGISTRY=ALGO_REGISTRY_30
 
-#à donner à medsam en entrainement:
-#une ou la couleur est bien contrastée
-#une ou les cellules sont bien pleines
-
-#une ou les contours sont bien visibles
+# To provide to MedSAM during training:
+# One where the color is well contrasted
+# One where the cells are well filled
+# One where the contours are clearly visible
