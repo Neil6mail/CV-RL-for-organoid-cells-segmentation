@@ -1,0 +1,6 @@
+Step;Algorithm;Parameters
+1;Original Image;{}
+2;gaussian_blur;{7}
+3;threshold_filter;{59, 255}
+4;tresholding;{1, 255}
+5;bitwise;{'MASK'}

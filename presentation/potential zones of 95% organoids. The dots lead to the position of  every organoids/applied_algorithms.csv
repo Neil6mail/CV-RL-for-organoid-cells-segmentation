@@ -1,0 +1,8 @@
+Step;Algorithm;Parameters
+1;Original Image;{}
+2;gaussian_blur;{5}
+3;z_score_normalization;{}
+4;sobel_edge;{1, 1, 3}
+5;thresholding_range;{1, 255}
+6;bitwise;"{""NOT""}"
+7;bitwise;"{""MASK""}"

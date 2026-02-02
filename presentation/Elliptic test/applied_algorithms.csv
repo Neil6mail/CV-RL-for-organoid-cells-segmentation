@@ -1,0 +1,9 @@
+Step;Algorithm;Parameters
+1;Original Image;{}
+2;gaussian_blur;{5}
+3;median_blur;{5}
+4;gaussian_blur;{5}
+5;canny;{0, 0}
+6;remove_small_holes;{200}
+7;elliptic_test;{1, 0.2, 0, 0}
+8;remove_small_objects;{64}

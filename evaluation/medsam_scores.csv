@@ -1,0 +1,12 @@
+Algorithm;score;parameters;P_0;P_1;P_2;P_3;P_4
+raw;0.7832071576049553;[];;;;;
+gaussian_blur;0.612684883429431;['ksize'];5;;;;
+median_blur;0.5921579087756735;['ksize'];5;;;;
+bilateral_filter;0.5137759118341643;['d', 'sigmaColor', 'sigmaSpace'];9;75;75;;
+clahe;0.4280442804428044;['clip_limit', 'tile_grid_size'];2.0;(8, 8);;;
+histogram_equalization;0.24139130434782607;[];;;;;
+sobel_edge;0.01288244766505636;['dx', 'dy', 'ksize'];1;0;3;;
+canny;0.04020908725371934;['threshold1', 'threshold2'];100;200;;;
+laplacian;0.14822695035460992;['ksize'];3;;;;
+unsharp_mask;0.7497661365762395;['strength', 'blur_ksize'];1.5;5;;;
+adaptive_threshold;0.13432282003710574;['blockSize', 'C'];11;2;;;

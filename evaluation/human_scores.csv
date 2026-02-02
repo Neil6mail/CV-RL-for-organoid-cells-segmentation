@@ -1,0 +1,12 @@
+Algorithm;Clarity;Contrast
+0 : raw;3;3
+1 : gaussian_blur;2;2
+2 : median_blur;4;3
+3 : bilateral_filter;1;2
+4 : clahe;4;4
+5 : histogram_equalization;1;1
+6 : sobel_edge;1;1
+7 : canny;1;1
+8 : laplacian;1;1
+9 : unsharp_mask;3;3
+10 : adaptive_threshold;1;1

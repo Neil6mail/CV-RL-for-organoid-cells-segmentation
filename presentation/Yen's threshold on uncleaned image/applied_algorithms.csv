@@ -1,0 +1,6 @@
+Step;Algorithm;Parameters
+1;Original Image;{}
+2;non_local_means_denoising;{4, 7, 21}
+3;threshold_yen;{}
+4;remove_small_objects;{32}
+5;median_blur;{5}
