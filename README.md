@@ -7,6 +7,9 @@
 </div>
 
 ---
+<p align="center">
+    <img width="596" height="320" alt="Capture d&#39;écran 2026-03-26 123441" src="https://github.com/user-attachments/assets/24c523d0-de9d-431d-9ebd-4f8e47619953" />
+</p>
 
 ## Overview
 
@@ -307,81 +310,9 @@ Each method folder contains:
 
 ---
 
-## ⚙️ Configuration
 
-Edit `parameters.py` to customize:
 
-```python
-# Image paths
-image_path = "images/data1_image_300.png" 
-mask_path = "images/data1_mask_300.png"  
-
-# Processing
-patch_size = 256
-step = 128
-
-# MedSAM settings
-Activate_Medsam = False  # Set to True if CUDA/MedSAM is available
-model_path = "model_checkpoints/model_checkpoint_1_100_epochs.pth"
-finetuned_version = True  # Use finetuned model vs pretrained
-
-# Algorithm registry (30 algorithms available)
-ALGO_REGISTRY = ALGO_REGISTRY_30
-```
-
----
-
-## 🎓 Workflow Examples
-
-### Example 1: Compare Two Methods
-
-```python
-from features import eval_all_algo_individualy
-
-# Method A: Edge detection focused
-method_a = ["gaussian_blur", "canny", "morphological_closing"]
-
-# Method B: Threshold focused
-method_b = ["clahe", "otsu_threshold", "morphological_opening"]
-
-# Evaluate both
-eval_all_algo_individualy(method_a, image_path, mask_path, human_eval=True)
-eval_all_algo_individualy(method_b, image_path, mask_path, human_eval=True)
-
-# Compare scores in human_scores.csv
-```
-
-### Example 2: Train RL Agent
-
-```python
-# See RL.ipynb for full implementation
-# Key steps:
-# 1. Initialize RL agent with algorithm registry
-# 2. Set reward function based on F1-score
-# 3. Train agent to discover optimal sequences
-# 4. Save best-performing sequences
-# 5. Export results to presentation/
-```
-
-### Example 3: Batch Process Multiple Images
-
-```python
-from features import eval_images
-import os
-
-# Evaluate all images in a folder
-images_paths = [
-    os.path.join("images", f) 
-    for f in os.listdir("images") 
-    if f.endswith(".png")
-]
-
-eval_images(images_paths, mask_path, name_csv="batch_evaluation.csv")
-```
-
----
-
-## 🔬 Scientific Background
+## Scientific Background
 
 This project targets **organoid segmentation** in biomedical imaging:
 
@@ -394,75 +325,7 @@ The dual-evaluation system (human + MedSAM) ensures reliability for research use
 
 ---
 
-## 📚 Key Research Insights
-
-Detailed findings are documented in:
-- **Report.pdf** – Complete technical analysis and results
-- **Presentation slides.pdf** – Visual summary of methods and findings
-- **presentation/** folder – Method-specific results and statistics
-
-Notable tested methods:
-✅ Yen's threshold method (strong performance)  
-✅ Background cleaning approach (5% organoid loss)  
-✅ Sobel edge detection methods  
-✅ RL-optimized sequences (initial attempts)  
-
----
-
-## 🛠️ Development & Extension
-
-### Adding New Algorithms
-
-1. Implement in `computer_vision_algo.py`:
-```python
-def apply_your_algorithm(img, param1=value1):
-    """Your algorithm description."""
-    result = your_implementation(img)
-    return result
-```
-
-2. Register in `parameters.py`:
-```python
-ALGO_REGISTRY_30 = {
-    # ... existing algorithms ...
-    "your_algorithm": apply_your_algorithm,
-}
-```
-
-3. Use immediately:
-```python
-algo_sequence = ["your_algorithm", "gaussian_blur"]
-```
-
-### Modifying RL Agent
-
-Edit `RL.ipynb` to:
-- Change reward functions
-- Adjust algorithm search space
-- Implement new exploration strategies
-- Add custom constraints
-
----
-
-## 📦 Dependencies
-
-### Core Dependencies
-- **opencv-python** – Image processing
-- **scikit-image** – Advanced computer vision
-- **numpy** – Numerical computing
-- **scikit-learn** – Machine learning (F1-score)
-- **matplotlib** – Visualization
-
-### Optional
-- **torch + CUDA** – GPU acceleration
-- **MedSAM** – Automatic segmentation evaluation
-- **jupyter** – Interactive notebook environment
-
-See `requirements.txt` and `medsam_environment.yaml` for complete specs.
-
----
-
-## 📄 Citation
+## Citation
 
 If you use this project in research, please cite:
 
@@ -474,15 +337,3 @@ If you use this project in research, please cite:
   url = {<repo-url>}
 }
 ```
-
----
-
-## 📝 License
-
-This project is licensed under the MIT License – see [LICENSE](LICENSE) for details.
-
-
-## 📮 Contact
-
-- **Issues & Questions**: Open a GitHub issue
-
