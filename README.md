@@ -53,57 +53,6 @@ Notable tested methods:
 
 ---
 
-## Project Structure
-
-```
-CV-RL-for-organoid-cells-segmentation/
-│
-├── Core Modules
-│   ├── computer_vision_algo.py    # 30+ vision algorithms (filters, thresholds, edge detection)
-│   ├── features.py                # Main API for applying/evaluating algorithms
-│   ├── metric.py                  # F1-score and pixel distribution analysis
-│   ├── image_treatment.py         # Image loading, patchification, preprocessing
-│   ├── clean_borders.py           # Mask cleaning and border processing
-│   └── analysis.py                # Statistical analysis on segmented images
-│
-├── Entry Points
-│   ├── main.py                    # Main script for exploration and manual evaluation
-│   ├── show_computer_vision_algo.py # Interactive visualization interface
-│   └── export_slice_image.py      # Extract images/masks from TIFF stacks
-│
-├── ML Components
-│   ├── load_medsam.py             # MedSAM model loading and inference
-│   └── parameters.py              # Global configuration (paths, patch size, model settings)
-│
-├── Data & Results
-│   ├── images/                    # Input images and ground truth masks
-│   ├── evaluation/                # Evaluation scores and analysis figures
-│   │   ├── human_scores.csv       # Manual evaluation results
-│   │   └── medsam_scores.csv      # Automatic evaluation results
-│   ├── presentation/              # Organized results by method
-│   │   ├── BACKGROUND CLEANED (5% organoids loss)/
-│   │   ├── Elliptic test/
-│   │   ├── The Z method/
-│   │   ├── Working with sobel edge method/
-│   │   ├── Yen's threshold method at its peak/
-│   │   └── [Other method folders]/
-│   └── __pycache__/               # Python cache
-│
-├── Setup & Configuration
-│   └── to setup the environment/
-│       ├── medsam_environment.yaml # Conda environment (recommended)
-│       └── requirements.txt        # pip dependencies
-│
-└── Documentation
-    ├── README.md                  # This file
-    ├── LICENSE                    # License information
-    ├── Report.pdf                 # Detailed project report
-    ├── Presentation slides.pdf    # Research presentation
-    └── human_scores.csv & medsam_scores.csv # Top-level evaluation results
-```
-
----
-
 ## Quick Start
 
 ### Prerequisites
@@ -307,21 +256,6 @@ Each method folder contains:
 - **Segmented images** – Visual results
 - **applied_algorithms.csv** – Algorithm sequences with parameters
 - **stats.csv** – Performance metrics (F1-score, MedSAM scores, etc.)
-
----
-
-
-
-## Scientific Background
-
-This project targets **organoid segmentation** in biomedical imaging:
-
-- **Organoids**: Self-organizing 3D cellular structures derived from stem cells
-- **Challenge**: Precise segmentation of organoid boundaries in microscopy images
-- **Approach**: Combine classical computer vision (fast, interpretable) with modern ML (accurate)
-- **Goal**: Develop robust, generalizable segmentation pipelines
-
-The dual-evaluation system (human + MedSAM) ensures reliability for research use.
 
 ---
 
