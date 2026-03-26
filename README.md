@@ -7,8 +7,9 @@
 </div>
 
 ---
-<img width="1198" height="643" alt="Capture d&#39;écran 2026-03-26 123510" src="https://github.com/user-attachments/assets/33c563c0-7a88-4bf3-9466-e54dc171cbf8" />
-<img width="1195" height="641" alt="Capture d&#39;écran 2026-03-26 123441" src="https://github.com/user-attachments/assets/24c523d0-de9d-431d-9ebd-4f8e47619953" />
+<p align="center">
+    <img width="596" height="320" alt="Capture d&#39;écran 2026-03-26 123441" src="https://github.com/user-attachments/assets/24c523d0-de9d-431d-9ebd-4f8e47619953" />
+</p>
 
 ## Overview
 
